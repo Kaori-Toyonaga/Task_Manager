@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show]
+  before_action :set_task, only: [:show, :edit, :update]
 
   def index
     @tasks = Task.all
@@ -18,10 +18,21 @@ class TasksController < ApplicationController
       render :new
     else
       if @task.save
-        redirect_to tasks_path, notice: "タスクを登録しました。"
+        redirect_to tasks_path, notice: "タスクを作成しました。"
       else
         render :new
       end
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @task.update(task_params)
+       redirect_to tasks_path, notice: "更新しました。"
+    else
+      render :edit
     end
   end
 
