@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Model : tasks
 
-Things you may want to cover:
+t.string "title"
+t.text "detail"
+t.string "user"
+t.string "status"
+t.string "priority"
+t.datetime "limit"
+t.datetime "created_at", null: false
+t.datetime "updated_at", null: false
 
-* Ruby version
+Model : labels
 
-* System dependencies
+t.string "label_title"
+t.integer "task_id"
+t.datetime "created_at", null: false
+t.datetime "updated_at", null: false
 
-* Configuration
 
-* Database creation
+Model : user
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+t.string "name"
+t.string "email"
+t.string "password_digest"
+t.datetime "created_at", null: false
+t.datetime "updated_at", null: false
